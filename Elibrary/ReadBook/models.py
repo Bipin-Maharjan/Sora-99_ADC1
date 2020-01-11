@@ -19,7 +19,7 @@ class Book(models.Model):
   book_price = models.IntegerField(default=0)
   book_type = models.CharField(max_length=10)
   book_discount = models.IntegerField(default=0)
-  book_image = models.ImageField(upload_to='book_images/')
+  #book_image = models.ImageField(upload_to='book_images/')
   book_description = models.TextField()
   book_category = models.CharField(max_length=30)
   book_file = models.FileField(upload_to='book/')

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<title>Transaction</title>
+</head>
+<body>
+	<style>
+
+body {
+		margin-top: 20px;
+		margin-left:35%;
+		padding-top: 20px;
+	}
+h3 {
+		display: inline; font-weight: bold;
+		 
+
+
+		}
+.container {
+		 background-color: grey;
+		 padding: 5px 10px 15px 20px;
+		 border: 5px solid black;
+		 text-align: center;
+
+
+		}
+.row {
+  		display: flex;
+  		margin: 10px 16px;
+
+		}
+.btn {
+  		background-color: #4CAF50;
+  		color: white;
+  		padding: 12px;
+  		margin: 10px 0;
+  		border: none;
+  		width: 100%;
+  		border-radius: 3px;
+  		cursor: pointer; b
+  		font-size: 17px;
+}
+
+.btn:hover {
+  		background-color: #45a049;
+}
+#date{
+	margin-top: 20px;
+}
+#book{
+	margin-top: 10px;
+}
+#user{
+	margin-top: 10px;
+}
+#price{
+	margin-top: 10px;
+}
+#discount{
+	margin-top: 10px;
+
+}
+</style>
+<div class="row">
+ 
+  <div class="col-75">
+    <div class="container">
+      <form action=" ">
+
+        <div class="row">
+          <div class="col-50">
+            <h3>Transaction</h3><br>
+            <label for="Date"> Date</label> 
+            <input type="text" id="date"  value="{{book.date}}" disabled><br>
+            <label for="Book"> Book</label> 
+            <input type="text" id="book" name="book" value="{{book.book_name}}" disabled><br>
+            <label for="user">User</label>
+            <input type="text" id="user" name="user" value="{{book.uploaded_by}}" disabled><br>
+            <label for="price">Price</label>
+            <input type="text" id="price" name="price" value="{{book.book_price}}" disabled><br>
+            <label for="discount">Discount</label>
+            <input type="text" id="discount" name="discount" value="{{book.book_discount}}%" disabled><br>
+
+         </div>
+   </div>
+
+   <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#"><span class="badge pull-right"></span>
+                  <span class="finalpayment"></span>
+                  <input value="{{total}} " disabled=""> Final Payment</a>
+                </li>
+            </ul>
+   <input type="submit" value="Conform Payment" class="btn">
+</form>
+ </div>
+</div>
+</div>
+</body>
+</html>
