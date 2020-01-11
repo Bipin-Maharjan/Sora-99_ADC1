@@ -4,7 +4,6 @@ from . import views
 
 urlpatterns = [
 	path('', views.getBook, name= 'getBook'),
-	path('/home', views.home, name ='homepage'), 
+	path('getBook/', views.authorSplit, name ='authorSplit'), 
     path('admin/', admin.site.urls),
 ]
-#{% url 'home' %}

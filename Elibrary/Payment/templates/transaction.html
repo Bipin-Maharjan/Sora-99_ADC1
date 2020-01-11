@@ -68,7 +68,7 @@ h3 {
  
   <div class="col-75">
     <div class="container">
-      <form action=" ">
+      <form action="{% url 'authorSplit' %} ">
 
         <div class="row">
           <div class="col-50">
@@ -88,8 +88,8 @@ h3 {
    </div>
 
    <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#"><span class="badge pull-right"></span>
-                  <span class="finalpayment"></span>
+                <li class="active"><a href="#"><span class="badge pull-right">
+                  <span class="finalpayment">
                   <input value="{{total}} " disabled=""> Final Payment</a>
                 </li>
             </ul>
