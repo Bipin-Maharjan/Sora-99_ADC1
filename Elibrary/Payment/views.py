@@ -52,7 +52,7 @@ def payment(request,bid):
 
 # This function is for updating the user amount incase of not sufficient amount available for purchasing book 
 @login_required(login_url = '/login/')
-def update_amount(request,bid):
+def update_amount(request):
 	if request.method == 'POST':
 		user = request.user
 		userinfo = UserInfo.objects.filter(users_id =user.id).get()
