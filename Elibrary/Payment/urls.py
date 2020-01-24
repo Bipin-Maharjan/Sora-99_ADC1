@@ -7,5 +7,5 @@ app_name = 'Payment'
 urlpatterns = [
 	path('getbook/<int:id>', views.getBook, name= 'getBook'),
 	path('payment/<int:bid>', views.payment, name ='Payment'),
-	path('updateamount/<int:bid>', views.update_amount, name ='updateamount'),
+	path('updateamount/', views.update_amount, name ='updateamount'),
 ]

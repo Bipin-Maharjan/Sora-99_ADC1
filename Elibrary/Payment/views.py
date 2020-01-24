@@ -43,7 +43,7 @@ def payment(request,bid):
 				#If the user amount is less than total book price then error message is displayed to the user.
 			elif userinfo.user_amount<total:
 				#add django message
-				return redirect('Payment:updateamount', bid = bid)
+				return redirect('Payment:updateamount')
 		else:
 			#if no book
 			return redirect('ReadBook:premiumbook')
@@ -59,9 +59,9 @@ def update_amount(request,bid):
 		amount = request.POST.get('amount',0)
 		userinfo.user_amount = int(userinfo.user_amount)+int(amount)
 		userinfo.save()
-		return redirect("Payment:getBook",id = bid )
+		return redirect('ReadBook:premiumbook')
 
-	return render(request, 'Payment/updateprice.html', context={"bid":bid})
+	return render(request, 'Payment/updateprice.html')
 	
 
 
