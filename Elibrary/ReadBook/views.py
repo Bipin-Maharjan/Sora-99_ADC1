@@ -9,9 +9,6 @@ from django.core.exceptions import PermissionDenied
 from .CustomException import CustomException
 
 # Create your views here.
-def login_url(request): #this is for demo remove for final uplaod
-  return HttpResponse("<h1>required login to view page</h1> go to adimn <a href='/admin'>admin</a>")
-
 def loadBook(request):
   books = Book.objects.all()
   return render(request,'ReadBook/Book.html',context={'books':books})

@@ -9,7 +9,6 @@ urlpatterns = [
     path('', views.loadBook, name='premiumbook'),
     path('description/<int:bid>/', views.bookDescription, name='description'),
     path('addbook/', views.addBook, name='addbook'),
-    path('login/', views.login_url, name="login"),
     path('review/<int:bid>/', views.review, name="review"),
     path('rating/<int:bid>/', views.rating, name='rating')
 ]
