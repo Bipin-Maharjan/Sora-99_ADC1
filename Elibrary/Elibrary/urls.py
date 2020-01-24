@@ -23,4 +23,5 @@ urlpatterns = [
     path('',include('ReadBook.urls')),
     path('', include('Payment.urls')),
     path('',include('Search.urls')),
+    path('', include('Accounts.urls')),
 ]
