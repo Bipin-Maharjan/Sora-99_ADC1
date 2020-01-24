@@ -65,7 +65,7 @@
       {% if not bought or not loggedin %}
       <div style="margin: 10px;">
         <!-- {% comment %} replace action # with {% url '<payment>' book.pk %} {%endcomment %} -->
-        <form action="#" method="POST">
+        <form action="{% url 'Payment:getBook' book.pk %}" method="POST">
           {% csrf_token %}
           <button class="btn waves-effect" type="submit" style="width:100%">
             {{ book.book_price|yesno:'$,Free' }} {% firstof book.book_price %}

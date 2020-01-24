@@ -36,7 +36,7 @@
         </div>
         <div style="margin-left: auto;">
           <!-- {% comment %} replace action # with {% url '<payment>' book.pk %} {%endcomment %} -->
-          <form action="#" method="POST">
+          <form action="{% url 'Payment:getBook' book.pk %}" method="POST">
             {% csrf_token %}
             <button class="btn waves-effect" type="submit">
               {{ book.book_price|yesno:'$,Free' }} {% firstof book.book_price %}
