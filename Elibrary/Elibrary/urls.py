@@ -21,4 +21,5 @@ urlpatterns = [
     
     #add include to your apps url.py
     path('',include('ReadBook.urls')),
+    path('', include('Accounts.urls')),
 ]

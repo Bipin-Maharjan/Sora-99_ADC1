@@ -1,0 +1,33 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="{% url 'Accounts:register_user' %}">Register</a></li>
+  <li><a href="{% url 'Accounts:login_user' %}">Login</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'Accounts:logout_user' %}">Logout</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">HOME</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="{% url 'ReadBook:premiumbook' %}">AddBook</a><br></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Register<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>
+<nav style="width: 500px; margin-top: -65px; margin-left: 500px;">
+  <div class="nav-wrapper" style="width: 500px; ">
+    <form method="GET" action='{% url "Search:search" %}'>
+      <div class="input-field">
+        <input id="search" type="search" required>
+        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons">close</i>
+      </div>
+    </form>
+  </div>
+</nav>
+<script type="text/javascript">
+  $(document ).ready(function(){
+    $(".dropdown-trigger").dropdown()
+  });
+</script>  
