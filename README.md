@@ -7,6 +7,7 @@
  Django version: 3.0.1
  
 Requirement:
+
 Install: pip install pillow
 
 To run this app 
