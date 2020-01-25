@@ -18,10 +18,9 @@ def get_data_queryset(query= None):
 	queries = query.split(" ") 
 	for q in queries:
 		books = Book.objects.filter(
-			Q(book_name__icontains= q) |
-			Q(book_file__icontains = q)
+			Q(book_name__icontains= q)
 			).distinct()
 		for book in books:
   			queryset.append(book)
-  			return list(set(queryset))
+  	return list(set(queryset))
 
