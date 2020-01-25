@@ -35,13 +35,9 @@
           </span> -->
         </div>
         <div style="margin-left: auto;">
-          <!-- {% comment %} replace action # with {% url '<payment>' book.pk %} {%endcomment %} -->
-          <form action="{% url 'Payment:getBook' book.pk %}" method="POST">
-            {% csrf_token %}
-            <button class="btn waves-effect" type="submit">
-              {{ book.book_price|yesno:'$,Free' }} {% firstof book.book_price %}
-            </button>
-          </form>
+          <a href="{% url 'ReadBook:description' book.id %}" class="btn waves-effect">
+            {{ book.book_price|yesno:'$,Free' }}{% firstof book.book_price %} {{ book.book_discount|yesno:'-,' }} {% firstof book.book_discount %}{{book.book_discount|yesno:'%,' }}
+          </a>
         </div>
       </div>
     </div>
