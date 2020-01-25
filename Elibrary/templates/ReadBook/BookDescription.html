@@ -68,7 +68,7 @@
         <form action="{% url 'Payment:getBook' book.pk %}" method="POST">
           {% csrf_token %}
           <button class="btn waves-effect" type="submit" style="width:100%">
-            {{ book.book_price|yesno:'$,Free' }} {% firstof book.book_price %}
+            {{ book.book_price|yesno:'Buy: $,Free' }}{% firstof book.book_price %} {{ book.book_discount|yesno:'-,' }} {% firstof book.book_discount %}{{book.book_discount|yesno:'%,' }}
           </button>
         </form>
       </div>
@@ -95,10 +95,10 @@
     <!-- description section ends -->
 
     <div class="col l2">
-      <div class="bdr" style="height:340px; padding:5px;">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum perspiciatis corporis aspernatur ea odit nihil quas molestias modi, accusamus
-        eligendi laborum, itaque quos! Laudantium omnis soluta aliquid beatae quae! Molestias!
-      </div>
+      <!-- <div class="bdr" style="height:340px; padding:5px;">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum perspiciatis corporis aspernatur ea odit nihil quas molestias modi, accusamus eligendi laborum, itaque quos! Laudantium omnis
+        soluta aliquid beatae quae! Molestias!
+      </div> -->
     </div>
     <!-- review section -->
     <div class="row" style="margin-bottom: 0px;">
