@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'ReadBook',
     'Payment',
     'Search',
+    'GET_API',
+    'DELETE_API',
 ]
 
 MIDDLEWARE = [

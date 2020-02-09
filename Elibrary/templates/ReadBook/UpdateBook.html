@@ -6,13 +6,7 @@
   <div class="row" style="border-top: 1px solid #9e9e9e;">
     <div class="col s12 m5 l4 ">
       <div style="text-align:center; margin-top: 15px;">
-        <img
-          src="{% static 'ReadBook/no_cover.jpg' %}"
-          alt="Uploaded Picture"
-          id="uploadedpic"
-          class="img-fluid"
-          style="height:292px; border: 1px solid #9e9e9e; padding: 5px;"
-        />
+        <img src="{{book.book_cover.url}}" alt="Uploaded Picture" id="uploadedpic" class="img-fluid" style="height:292px; border: 1px solid #9e9e9e; padding: 5px;" />
       </div>
     </div>
     <div class=" col s12 m7 l8" style="max-height: 311px; overflow: hidden;">
@@ -48,7 +42,7 @@
     <div style="display: flex; align-items: center; justify-content: center;" class="">
       <div class="col s12 " style="margin-left: unset; border-top: 1px solid  #9e9e9e;">
         <div>
-          <h4 style="text-align: center;">Add Book Description</h4>
+          <h4 style="text-align: center;">Update Book Details</h4>
           <!-- error displayig area -->
           {% if messages %} {% for message in messages %}
           <div {% if message.tags %} class="{{ message.tags }} alert-danger" {% endif %} id="alert">
@@ -64,15 +58,15 @@
           {% csrf_token %}
           <div class="input-field col s12 m6">
             <label for="bookname">Book Title *</label>
-            <input type="text" name="name" id="bookname" class="validate" required value="{{bookname}}" />
+            <input type="text" name="name" id="bookname" class="validate" required value="{{book.book_name}}" />
           </div>
           <div class="input-field col s12 m6">
             <label for="category">Book Category *</label>
-            <input type="text" name="category" id="category" class="validate" required value="{{category}}" />
+            <input type="text" name="category" id="category" class="validate" required value="{{book.book_category}}" />
           </div>
           <div class="col s12 m6">
             <label for="booktype" class="fs15">Book Type: *</label>
-            <select name="type" id="booktype" style="display: block;" required>
+            <select name="type" id="booktype" style="display: block;" book_value="{{book.book_type}}" required>
               <option value="" disabled selected>Choose your option</option>
               <option value="Premium">Premium</option>
               <option value="Free">Free</option>
@@ -80,51 +74,19 @@
           </div>
           <div class="input-field col s12 m6">
             <label for="bookprice">Book Price</label>
-            <input type="Number" name="price" id="bookprice" class="validate" value="{{bookprice}}" />
-          </div>
-          <div class="col s12 m6">
-            <label for="bookcover" class="fs15">Book Cover:</label><br />
-            <div class="file-field input-field">
-              <div class="btn">
-                <span>Upload</span>
-                <input type="file" name="image" accept="image/jpeg" id="bookcover" />
-              </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="Upload Book Cover" id="bookcoverpath" />
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6">
-            <label for="bookfile" class="fs15">Book File: *</label><br />
-            <div class="file-field input-field">
-              <div class="btn">
-                <span>Upload</span>
-                <input type="file" name="file" accept="application/pdf" id="bookfile" required />
-              </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="Upload Book .pdf File" id="bookfilepath" />
-              </div>
-            </div>
+            <input type="Number" name="price" id="bookprice" class="validate" value="{{book.book_price}}" />
           </div>
           <div class="col s12">
             <label for="bookdescription" class="fs15">Abstract of Book: *</label>
-            <textarea
-              name="description"
-              id="bookdescription"
-              style="height: 8rem;resize: none; border:solid 0.5px #9e9e9e; margin-top:5px"
-              placeholder="Description"
-              required
-            >
-{{description}}</textarea
+            <textarea name="description" id="bookdescription" style="height: 8rem;resize: none; border:solid 0.5px #9e9e9e; margin-top:5px" placeholder="Description" required>
+{{book.book_description}}</textarea
             >
           </div>
           <div class="input-field col s12 m6">
-            <button type="button" class="btn waves-effect waves-light" style="width:100%;" id="cancel">
-              Cancel <i class="material-icons right">cancel</i>
-            </button>
+            <a class="btn waves-effect waves-light" style="width:100%;" href="{% url 'ReadBook:description' book.pk %}">Cancel <i class="material-icons right">cancel</i></a>
           </div>
           <div class="input-field col s12 m6">
-            <button type="submit" class="btn waves-effect waves-light" style="width:100%;">Add Book <i class="material-icons right">add</i></button>
+            <button type="submit" class="btn waves-effect waves-light" style="width:100%;">Update Book <i class="material-icons right">update</i></button>
           </div>
         </form>
       </div>
@@ -132,7 +94,7 @@
   </div>
 </div>
 <script>
-  // for disabling price input filed
+  // for disabling price input field
   $(document).ready(function() {
     if ($("#booktype option:selected").val() == "Free") {
       $("#bookprice").attr("disabled", "disabled");
@@ -146,6 +108,18 @@
         $("#bookprice").removeAttr("disabled");
       }
     });
+  });
+
+  $(document).ready(function() {
+    options = $("#booktype option");
+    bookValue = $("#booktype").attr("book_value");
+    for (option of options) {
+      if (option.value == bookValue) {
+        $(option).attr("selected", "selected");
+      } else if (option.value == bookValue) {
+        $(option).attr("selected", "selected");
+      }
+    }
   });
 
   //auto add text
@@ -173,31 +147,6 @@
     $("#bookdescription").change(function() {
       $("#add_description").text($(this).val());
     });
-  });
-
-  $(document).ready(function() {
-    $("#cancel").click(function() {
-      $("#addbookform").trigger("reset");
-      $("#add_title").text("");
-      $("#add_cat_type").text("");
-      $("#add_description").text("");
-    });
-  });
-
-  //to pre load images addded in the field
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-
-      reader.onload = function(e) {
-        $("#uploadedpic").attr("src", e.target.result);
-      };
-
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-  $("#bookcover").change(function() {
-    readURL(this);
   });
 </script>
 {% endblock %}
