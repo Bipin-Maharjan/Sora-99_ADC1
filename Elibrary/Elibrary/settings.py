@@ -42,6 +42,8 @@ INSTALLED_APPS = [
 
     #Add installed apps here
     'ReadBook',
+    'GET_API',
+    'DELETE_API',
 ]
 
 MIDDLEWARE = [

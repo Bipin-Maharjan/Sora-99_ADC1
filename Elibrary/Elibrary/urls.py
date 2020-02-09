@@ -21,4 +21,6 @@ urlpatterns = [
     
     #add include to your apps url.py
     path('',include('ReadBook.urls')),
+    path('api/',include('GET_API.urls')),
+    path('api/',include('DELETE_API.urls')),
 ]
