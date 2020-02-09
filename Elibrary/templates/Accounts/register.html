@@ -1,5 +1,15 @@
 {% extends 'Base/Header.html' %}
 {% block content %}
+	{% if messages %} 
+		{% for message in messages %}
+			<div {% if message.tags %} class="{{ message.tags }} alert-danger" {% endif %} id="alert">
+				{{ message }}
+				<i class="material-icons" style="color:black; float:right; cursor: pointer;" id="closealert">
+					close
+				</i>
+			</div>
+  	{% endfor %} 
+	{% endif %}
 	<h1>Join us today!</h1>
 	<form method="POST">
 		{% if error %}
@@ -21,14 +31,8 @@
 		</select></div><br>
 		<input type="password" name="password1" placeholder="Enter your password"><br>
 		<input type="password" name="password2" placeholder="Enter your password for conformation"><br>
-		<input type="submit" name="">
+		<input type="submit" name="" value="Register" class="btn">
 </form>
 <h2>Already have an account?<a href="Accounts/login.html">Sign IN</a></h2>
-
-<div>
-	{% for message in messages %}
-	<h3>{{message}}</h3>
-	{% endfor %}
-</div>
 
 {% endblock content %}

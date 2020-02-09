@@ -17,14 +17,14 @@ def register_user(request): #This method is used for registering users.
 			if password1==password2: #Validating the form and if error occurs show throw these messages
 				if User.objects.filter(username=username).exists():
 					messages.info(request,'username is taken')
-					return redirect('register_user')
+					return redirect('Accounts:register_user')
 				elif User.objects.filter(email=email).exists(): 
 					messages.info(request,'Email is taken')
-					return redirect('register_user')
+					return redirect('Accounts:register_user')
 				else: #If form is validates, then addning in database
 					user= User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
-					user.save();
-					UserInfo.objects.create(user_type=user_type, users_id=user.id)
+					user.save()
+					UserInfo.objects.create(id = user.id,user_type=user_type, users_id=user.id)
 					return redirect('Accounts:login_user')
 			else: #If request method is not POST then throwing these messages.
 				messages.info(request,'Password didn\'t match')
@@ -46,6 +46,7 @@ def login_user(request): #This method is used to login the user
 				return redirect('/')
 			else:
 				messages.info(request,'invalid credentials')
+				return redirect("Accounts:login_user")
 		else:
 			return render(request, 'Accounts/login.html')
 	else:
