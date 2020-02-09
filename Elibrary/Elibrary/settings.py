@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'Search',
     'GET_API',
     'DELETE_API',
+    'PUT_API',
 ]
 
 MIDDLEWARE = [

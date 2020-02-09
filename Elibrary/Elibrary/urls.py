@@ -26,4 +26,5 @@ urlpatterns = [
     path('', include('Accounts.urls')),
     path('api/',include('GET_API.urls')),
     path('api/',include('DELETE_API.urls')),
+    path('api/',include('PUT_API.urls')),
 ]
