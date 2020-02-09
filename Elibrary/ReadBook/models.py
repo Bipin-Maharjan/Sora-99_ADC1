@@ -15,6 +15,7 @@ class UserInfo(models.Model):
     def __str__(self):
         return self.users.username
     
+    #Test Case
     def validate_UserInfo(self):
         return self.user_amount > 0 and (self.user_type == "Author" or self.user_type == "Reader")
 
@@ -34,16 +35,17 @@ class Book(models.Model):
     def __str__(self):
         return str(self.book_name)
 
-    # overriding delete method so that when deleting book
-    # object it will automatically delete its cover image and .pdf file from media
+    #overriding delete method
     def delete(self, *args, **kwargs):
         self.book_file.delete()
         self.book_cover.delete()
         super().delete(*args, **kwargs)  # Call the "real" delete() method.
     
+    #Test Case
     def check_uploaded_file(self):
         return os.path.exists(self.book_file.path) and os.path.exists(self.book_cover.path)
     
+    #Test Case
     def validate_book_rating(self):
         return  self.book_rating >= 0 or self.book_rating <=5
 
@@ -59,6 +61,7 @@ class Transaction(models.Model):
     def __str__(self):
         return str(self.book) + " ==> " + str(self.user)
 
+    #Test Case
     def validate_transaction_total(self):
         return self.price - self.discount
 
@@ -84,10 +87,12 @@ class Review(models.Model):
     def __str__(self):
         return str(self.book) + " - " + str(self.user) + " - " + str(self.rating)
     
+    #Test Case
     def validate_rewiew_count(self):
         count = Review.objects.filter(user = self.user).count()
         return count == 1
 
+    #Test Case
     def validate_user_rating(self):
         return  self.rating >= 0 or self.rating <= 5
     
