@@ -17,14 +17,17 @@
     <!-- Compiled and minified JavaScript for materialized -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!-- individual css -->
+    <!-- individaul css -->
+    <link rel="stylesheet" href="{% static 'Payment/transaction.css' %}" />
     <link rel="stylesheet" href="{% static 'ReadBook/Rating.css' %}" />
     <link rel="stylesheet" href="{% static 'ReadBook/style.css' %}" />
 
-    <!-- individual JavaScript/JQuery -->
+    <!-- individaul Javascript/Jquery -->
     <script src="{% static 'ReadBook/alert.js' %}"></script>
   </head>
+
   <body>
+    {% include "./Navbar.html" %}
     <div class="container">
       {% block content %} {% endblock %}
     </div>
