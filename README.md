@@ -85,5 +85,5 @@
      "booktype" = "Book Type 'Free' or 'Premium'"
      "description" = "Book Descrition or Abstract of book"
      "category" = "Book Category"
-     "userid" = "Valid User ID"
+     "userid" = "Owner User ID"
     ```
