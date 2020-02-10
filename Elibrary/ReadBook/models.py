@@ -65,18 +65,6 @@ class Transaction(models.Model):
     def validate_transaction_total(self):
         return self.price - self.discount
 
-class PendingTransaction(models.Model):
-    date = models.DateTimeField(auto_now_add=True)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    user = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
-    price = models.IntegerField(null=False)
-    discount = models.IntegerField(default=0)
-    total = models.IntegerField()
-
-    def __str__(self):
-        return str(self.book) + " ==> " + str(self.user)
-
-
 class Review(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     rating = models.SmallIntegerField(default=0)
