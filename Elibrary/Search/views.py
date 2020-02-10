@@ -22,5 +22,5 @@ def get_data_queryset(query= None):
 			).distinct()
 		for book in books:
 			queryset.append(book)
-		return list(set(queryset))
+	return list(set(queryset))
 
