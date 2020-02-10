@@ -12,15 +12,15 @@
  - Install pillow: ``` $ pip install pillow ```
  
 ### Setting up this project:
-- ```python manage.py makemigration```
+- ```python manage.py makemigrations```
 - ```python manage.py migrate```
 - ```python manage.py runserver```
 
 ### Built on Django Version: 3.0.1
 > Enjoy the code !!!
 
-#  API Documentation
-
+#
+# API Documentation
 
 #### GET API
 - **To get first 10 books**
@@ -80,10 +80,10 @@
   - #### Required Parameters
     ```
     Body Parameter
-     "Title" = "Book Title"
-     "Price" = "Book Price"
-     "Type" = "Book Type 'Free' or 'Premium'"
-     "Description" = "Book Descrition or Abstract of book"
-     "Category" = "Book Category"
-     "UserID" = "Valid User ID"
+     "title" = "Book Title"
+     "price" = "Book Price"
+     "booktype" = "Book Type 'Free' or 'Premium'"
+     "description" = "Book Descrition or Abstract of book"
+     "category" = "Book Category"
+     "userid" = "Valid User ID"
     ```
