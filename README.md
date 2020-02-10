@@ -76,7 +76,7 @@
 ## PUT API
 - To Update Book by id
   - syntax : ```/api/updatebook/id=<int:bookid>```
-  - usage : ```127.0.0.1:8000/api/updatebook/id=1
+  - usage : ```127.0.0.1:8000/api/updatebook/id=1```
   - #### Required Parameters
     ```
     Body Parameter
