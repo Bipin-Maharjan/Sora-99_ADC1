@@ -22,7 +22,7 @@
 #  API Documentation
 
 
-## GET API
+#### GET API
 - **To get first 10 books**
   - Syntax : ```/api/book/```
   - Usage : ```127.0.0.1:8000/api/book/```
@@ -48,12 +48,12 @@
   - Syntax : ```/book/search?q="keyword"&page="Number"```
   - Usage : ```127.0.0.1:8000/book/searchq?q="python"&page="2"```
 
-## DELETE API
+#### DELETE API
 - **To Delete Book by id**
   - Syntax : ```/api/delete/book=<int:bookid>```
   - Usage : ```127.0.0.1:8000/api/delete/book=1```
 
-## POST API
+#### POST API
 - **To Add Book**
   - Syntax : ```/api/addbook/```
   - Usage : ``127.0.0.1:8000/api/addbook``
@@ -73,7 +73,7 @@
      "UserID" = "Valid User ID"
     ```
   
-## PUT API
+#### PUT API
 - To Update Book by id
   - syntax : ```/api/updatebook/id=<int:bookid>```
   - usage : ```127.0.0.1:8000/api/updatebook/id=1```
