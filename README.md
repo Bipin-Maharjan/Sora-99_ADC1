@@ -54,7 +54,7 @@
   - Usage : ```127.0.0.1:8000/api/delete/book=1```
 
 #### POST API
-- **To Add Book**
+- **To Add Book in Book Model**
   - Syntax : ```/api/addbook/```
   - Usage : ``127.0.0.1:8000/api/addbook``
   - #### Required Parameters
@@ -71,6 +71,16 @@
      "Description" = "Book Descrition or Abstract of book"
      "Category" = "Book Category"
      "UserID" = "Valid User ID"
+    ```
+ - **To Add PostBook in BookPost Model**
+   - Syntax : ```/api/postbook/```
+   - Usage : ```127.0.0.1:8000/api/postbook```
+   - #### Required Parameters
+    ```   
+    Body Parameter
+     "Title" = "Book Title"
+     "Price" = "Book Price"
+     "Description" = "Book Descrition or Abstract of book"
     ```
   
 #### PUT API
