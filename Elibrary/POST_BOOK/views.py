@@ -36,7 +36,7 @@ def postBook(request):
 			raise Exception('Invalid book type')
 
 		#checking for errors
-		if (name == '' or btype == '' or description == '' or category == ''):
+		if (name == '' or book_type == '' or description == '' or category == ''):
 			raise Exception('Empty Field')
 		elif pdf.content_type != 'application/pdf':
 			raise Exception('File Type Error')

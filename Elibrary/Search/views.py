@@ -21,6 +21,6 @@ def get_data_queryset(query= None):
 			Q(book_name__icontains= q)
 			).distinct()
 		for book in books:
-  			queryset.append(book)
-  	return list(set(queryset))
+			queryset.append(book)
+		return list(set(queryset))
 
