@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'DELETE_API',
     'PUT_API',
     'POST_API',
+    'PostBook_POST_API',
 ]
 
 MIDDLEWARE = [

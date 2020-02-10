@@ -28,4 +28,5 @@ urlpatterns = [
     path('api/',include('DELETE_API.urls')),
     path('api/',include('PUT_API.urls')),
     path('api/',include('POST_API.urls')),
+    path('api/',include('PostBook_POST_API.urls')),
 ]
